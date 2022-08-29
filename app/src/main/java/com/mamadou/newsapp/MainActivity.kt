@@ -43,11 +43,34 @@ To get a Good Job (Meets Expectations) grade:
 package com.mamadou.newsapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.mamadou.newsapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
+    private val  newsletter = arrayListOf(
+        Article("Adam", "Job well done!", "Adam is a good student", "08/29/2022",
+            "education site", "Grade",
+            "www.google.com",""),
+        Article("Aly", "Job well done!", "Adam is a good student", "08/29/2022",
+        "education site", "Grade",
+        "www.google.com",""),
+        Article("John", "Job well done!", "Adam is a good student", "08/29/2022",
+            "education site", "Grade",
+            "www.google.com",""),
+        Article("Mary", "Job well done!", "Adam is a good student", "08/29/2022",
+            "education site", "Grade",
+            "www.google.com",""),
+        Article("Viv", "Job well done!", "Adam is a good student", "08/29/2022",
+            "education site", "Grade",
+            "www.google.com","")
+    )
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
     }
 }

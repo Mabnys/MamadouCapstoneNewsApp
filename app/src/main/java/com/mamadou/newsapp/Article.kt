@@ -5,7 +5,7 @@ data class Article(
     val content: String? = null,
     val description: String,
     val publishedAt: String,
-    val source: Source,
+    val source: String,
     val title: String,
     val url: String? = null,
     val urlToImage: String
