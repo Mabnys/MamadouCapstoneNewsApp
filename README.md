@@ -16,10 +16,10 @@ All Homeworks branches related to this repo are and will be merge with the devel
 - [x] Nullable types are used for certain properties which can be null such as author, source id. Other properties can be checked from News API documentation.
 - [x] Hardcoded news data is saved in ArrayList
 - [x] Layout for main activity is created
-- [ ] Loops are used for iterating the list and data is shown on the screen
-- [ ] Null checks are done using if/else statements
-- [ ] Code is divided into multiple functions instead of doing everything in onCreate(). At least one new function should be created.
+- [x] Loops are used for iterating the list and data is shown on the screen
+- [x] Null checks are done using if/else statements
+- [x] Code is divided into multiple functions instead of doing everything in onCreate(). At least one new function should be created.
 
 ### *- Nice to have (for Above and Beyond):*
-- [ ] Use default values with functions
-- [ ] Use maps to store hardcoded data instead of ArrayList
+- [x] Use default values with functions
+- [x] Use maps to store hardcoded data instead of ArrayList
