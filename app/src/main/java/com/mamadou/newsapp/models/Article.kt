@@ -1,5 +1,4 @@
 package com.mamadou.newsapp.models
-
 data class Article(
     //val author: String? = null,
     //val title: String,
