@@ -1,8 +1,4 @@
 <resources>
     <string name="app_name">CapstoneNewsApp</string>
-    <string name="article_title">Samsung Galaxy Watch 5 review: The best Android smartwatch, for now</string>
-    <string name="article_author">andrew.myrick@futurenet.com (Andrew Myrick)</string>
-    <string name="source_name">Android Central</string>
-    <string name="article_description">With the Galaxy Watch 4, there was a lot of hype surrounding the arrival of Wear OS 3. But with more competition on the horizon, it\'s definitely plausible to think that the Galaxy Watch 5 might not hold the crown of best Android smartwatch for too long.</string>
-    <string name="article_published_at">2022-08-26T12:00:00Z</string>
+    <item name="mainGroup" type="id" />
 </resources>
