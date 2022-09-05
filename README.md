@@ -28,15 +28,15 @@ All Homeworks branches related to this repo are and will be merge with the devel
 ## Week 3 Homework
 
 ### *- Need to have (for passing grade):*
-- [ ] Switch following Source Properties to use enum classes:
+- [x] Switch following Source Properties to use enum classes:
   #### . Category
    #### . Language
     #### . Country    
-- [ ] Create a  **NewsService** with a single method to get articles.
-- [ ] Reference **NewsService** from Activity and get the articles.
-- [ ] Your main activity layout should have a ScrollView at the top level.
+- [x] Create a  **NewsService** with a single method to get articles.
+- [x] Reference **NewsService** from Activity and get the articles.
+- [x] Your main activity layout should have a ScrollView at the top level.
 - [ ] Inflate a custom layout and loop through articles and set text (like title, author, etc) on the layout.
-- [ ] There should be an equivalent number of articles for each article element in your list.
+- [x] There should be an equivalent number of articles for each article element in your list.
 
 ### *- Nice to have (for Above and Beyond):*
 - [ ] Convert **NewsService** to an interface and create an **InMemoryNewsServiceImpl** class that implements **NewsService** to use in the Activity.  
