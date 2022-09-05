@@ -8,7 +8,7 @@ This repo is created to store the homeworks related to the repo.
 
 All Homeworks branches related to this repo are and will be merge with the development branch.
 
-## Homework1
+## Week 2 Homework
 
 ### *- Need to have (for passing grade):*
 - [x] Data classes are created for Article and Source
@@ -23,3 +23,22 @@ All Homeworks branches related to this repo are and will be merge with the devel
 ### *- Nice to have (for Above and Beyond):*
 - [x] Use default values with functions
 - [x] Use maps to store hardcoded data instead of ArrayList
+
+
+## Week 3 Homework
+
+### *- Need to have (for passing grade):*
+- [ ] Switch following Source Properties to use enum classes:
+  #### . Category
+   #### . Language
+    #### . Country    
+- [ ] Create a  **NewsService** with a single method to get articles.
+- [ ] Reference **NewsService** from Activity and get the articles.
+- [ ] Your main activity layout should have a ScrollView at the top level.
+- [ ] Inflate a custom layout and loop through articles and set text (like title, author, etc) on the layout.
+- [ ] There should be an equivalent number of articles for each article element in your list.
+
+### *- Nice to have (for Above and Beyond):*
+- [ ] Convert **NewsService** to an interface and create an **InMemoryNewsServiceImpl** class that implements **NewsService** to use in the Activity.  
+- [ ] Use a custom view called **ArticleView** that wraps the custom layout.
+- [ ] Add nulls in your articles list and use the *filter()* extension function!
