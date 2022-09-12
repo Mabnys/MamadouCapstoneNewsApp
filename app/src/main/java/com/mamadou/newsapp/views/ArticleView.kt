@@ -20,7 +20,7 @@ class ArticleView  @JvmOverloads constructor(
         orientation = VERTICAL
     }
 
-    fun getData(article: Article, onDeleteTapped: () -> Unit) {
+    fun getData(article: Article) {
         setArticleTitle(article.title)
         setArticleAuthor(article.author)
         setArticleDescription(article.description)

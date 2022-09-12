@@ -8,7 +8,7 @@ class ArticleViewHolder(
     private val articleView: ArticleView
 ) : RecyclerView.ViewHolder(articleView) {
 
-    fun bindData(article: Article, onDeleteTapped: () -> Unit) {
-        articleView.getData(article, onDeleteTapped)
+    fun bindData(article: Article) {
+        articleView.getData(article)
     }
 }

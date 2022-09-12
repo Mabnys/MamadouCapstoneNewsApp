@@ -13,6 +13,7 @@ class ArticleRecyclerAdapter(
 
     override  fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
         val articleView = ArticleView(parent.context)
+
         articleView.layoutParams = ViewGroup.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -21,17 +22,11 @@ class ArticleRecyclerAdapter(
     }
 
     override fun onBindViewHolder(holder: ArticleViewHolder, positon: Int) {
-        holder.bindData(articles[positon]) {
-            removeArticleAtIndex(holder.absoluteAdapterPosition)
-        }
+        holder.bindData(articles[positon])
     }
 
     override fun getItemCount(): Int {
         return articles.size
     }
 
-    private fun removeArticleAtIndex(index: Int) {
-        articles.removeAt(index)
-        notifyItemRemoved(index)
-    }
 }
