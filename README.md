@@ -48,10 +48,10 @@ All Homeworks branches related to this repo are and will be merge with the devel
 ## Week 4 Homework
 
 ### *- Need to have:*
-- [ ] An item row layout file
-- [ ] Use of RecyclerView to display the news data
-- [ ] Display news details in a separate screen
-- [ ] Clicking on a news article should take users to the details screen 
+- [X] An item row layout file
+- [X] Use of RecyclerView to display the news data
+- [X] Display news details in a separate screen
+- [X] Clicking on a news article should take users to the details screen 
 
 ### *- Nice to have:*
 - [ ] Swipe to delete an item from the displayed ArrayList in Recyclerview
