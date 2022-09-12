@@ -2,7 +2,6 @@ package com.mamadou.newsapp
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.mamadou.newsapp.databinding.ActivityMainBinding
-import com.mamadou.newsapp.views.ArticleView
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,12 +16,8 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-        articles.forEach { article ->
-            val articleNewsView = ArticleView(this)
-            articleNewsView.getData(article)
-            binding.mainGroup.addView(articleNewsView)
-
-
+        binding.articleRecyclerView.run {
+            adapter = ArticleRecyclerAdapter(articles)
         }
     }
 }
