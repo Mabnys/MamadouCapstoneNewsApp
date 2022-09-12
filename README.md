@@ -35,10 +35,10 @@ All Homeworks branches related to this repo are and will be merge with the devel
 - [x] Create a  **NewsService** with a single method to get articles.
 - [x] Reference **NewsService** from Activity and get the articles.
 - [x] Your main activity layout should have a ScrollView at the top level.
-- [ ] Inflate a custom layout and loop through articles and set text (like title, author, etc) on the layout.
+- [X] Inflate a custom layout and loop through articles and set text (like title, author, etc) on the layout.
 - [x] There should be an equivalent number of articles for each article element in your list.
 
 ### *- Nice to have (for Above and Beyond):*
 - [ ] Convert **NewsService** to an interface and create an **InMemoryNewsServiceImpl** class that implements **NewsService** to use in the Activity.  
-- [ ] Use a custom view called **ArticleView** that wraps the custom layout.
+- [X] Use a custom view called **ArticleView** that wraps the custom layout.
 - [ ] Add nulls in your articles list and use the *filter()* extension function!
