@@ -21,6 +21,8 @@ class MainActivity : AppCompatActivity() {
             val articleNewsView = ArticleView(this)
             articleNewsView.getData(article)
             binding.mainGroup.addView(articleNewsView)
+
+
         }
     }
 }

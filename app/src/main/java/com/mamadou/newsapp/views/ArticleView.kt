@@ -16,6 +16,10 @@ class ArticleView  @JvmOverloads constructor(
 
     private val binding = ArticleViewBinding.inflate(LayoutInflater.from(context), this)
 
+    init {
+        orientation = VERTICAL
+    }
+
     fun getData(article: Article) {
         setArticleTitle(article.title)
         setArticleAuthor(article.author)
