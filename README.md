@@ -55,8 +55,8 @@ All Homeworks branches related to this repo are and will be merge with the devel
 
 ### *- Nice to have:*
 - [ ] Swipe to delete an item from the displayed ArrayList in Recyclerview
-- [ ] Use of Jetpack Navigation
+- [x] Use of Jetpack Navigation
 - [ ] Single activity with multiple fragments
-- [ ] Refined UI design (Bolder news heading, lighter description font styles, use of CardView, appropriate padding, margins–you’re free to use your creativity here)
-- [ ] Use of SharedPreferences to persist the news data for offline use
+- [x] Refined UI design (Bolder news heading, lighter description font styles, use of CardView, appropriate padding, margins–you’re free to use your creativity here)
+- [x] Use of SharedPreferences to persist the news data for offline use
 
