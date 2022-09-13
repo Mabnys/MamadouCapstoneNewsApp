@@ -6,7 +6,8 @@ import com.mamadou.newsapp.models.Article
 import com.mamadou.newsapp.views.ArticleView
 
 class ArticleRecyclerAdapter(
-    articleList: List<Article>
+    articleList: List<Article>,
+    private val onArticleTap: (Int) -> Unit
 ) : RecyclerView.Adapter<ArticleViewHolder>() {
 
     private val articles = articleList.toMutableList()
@@ -22,7 +23,9 @@ class ArticleRecyclerAdapter(
     }
 
     override fun onBindViewHolder(holder: ArticleViewHolder, positon: Int) {
-        holder.bindData(articles[positon])
+        holder.bindData(articles[positon]){
+            onArticleTap(positon)
+        }
     }
 
     override fun getItemCount(): Int {

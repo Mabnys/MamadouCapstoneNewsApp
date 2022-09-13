@@ -8,7 +8,11 @@ class ArticleViewHolder(
     private val articleView: ArticleView
 ) : RecyclerView.ViewHolder(articleView) {
 
-    fun bindData(article: Article) {
+    fun bindData(article: Article, onTap: () -> Unit ) {
         articleView.getData(article)
+
+        articleView.setOnClickListener{
+            onTap()
+        }
     }
 }
