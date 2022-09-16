@@ -5,7 +5,8 @@
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/article_view.xml" value="0.20199275362318841" />
+        <entry key="app/src/main/res/layout/activity_news_details.xml" value="0.26268115942028986" />
+        <entry key="app/src/main/res/layout/article_view.xml" value="0.1" />
       </map>
     </option>
   </component>

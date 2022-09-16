@@ -95,8 +95,4 @@ class NewsService {
     fun getArticles(): List<Article> {
         return article
     }
-
-
-
-
 }

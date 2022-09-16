@@ -42,3 +42,21 @@ All Homeworks branches related to this repo are and will be merge with the devel
 - [ ] Convert **NewsService** to an interface and create an **InMemoryNewsServiceImpl** class that implements **NewsService** to use in the Activity.  
 - [X] Use a custom view called **ArticleView** that wraps the custom layout.
 - [ ] Add nulls in your articles list and use the *filter()* extension function!
+
+
+
+## Week 4 Homework
+
+### *- Need to have:*
+- [X] An item row layout file
+- [X] Use of RecyclerView to display the news data
+- [X] Display news details in a separate screen
+- [X] Clicking on a news article should take users to the details screen 
+
+### *- Nice to have:*
+- [ ] Swipe to delete an item from the displayed ArrayList in Recyclerview
+- [x] Use of Jetpack Navigation
+- [ ] Single activity with multiple fragments
+- [x] Refined UI design (Bolder news heading, lighter description font styles, use of CardView, appropriate padding, margins–you’re free to use your creativity here)
+- [x] Use of SharedPreferences to persist the news data for offline use
+
