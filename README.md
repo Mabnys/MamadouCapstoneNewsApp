@@ -64,10 +64,10 @@ All Homeworks branches related to this repo are and will be merge with the devel
 ## Week 5 Homework
 
 ### *- Need to have:*
-- [ ] News articles are fetched from News API instead of hardcoded data
-- [ ] Proper parsing of JSON data is done
-- [ ] Error handling - All exceptions/errors are handled gracefully (Network exception, json exception) by showing error messages
-- [ ] Internet check before making network calls
+- [x] News articles are fetched from News API instead of hardcoded data
+- [x] Proper parsing of JSON data is done
+- [x] Error handling - All exceptions/errors are handled gracefully (Network exception, json exception) by showing error messages
+- [x] Internet check before making network calls
 - [ ] Refresh button functionality to get the latest news data
 
 ### *- Nice to have:*
