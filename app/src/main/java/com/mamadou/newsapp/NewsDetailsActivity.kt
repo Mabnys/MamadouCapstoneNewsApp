@@ -13,7 +13,7 @@ class NewsDetailsActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-        val article =  intent.extras?.getParcelable<Article>("article")
+        val article =  intent.extras?.getParcelable<Article>(INTENT_EXTRA_ARTICLE)
 
         if (article != null) {
             binding.articleTitleTextView.text = article.title
@@ -23,5 +23,8 @@ class NewsDetailsActivity : AppCompatActivity() {
             binding.articlePublishAtTextView.text = article.publishedAt
             binding.articleSourceNameTextView.text = article.source.name
         }
+    }
+    companion object {
+        const val INTENT_EXTRA_ARTICLE = "article"
     }
 }
