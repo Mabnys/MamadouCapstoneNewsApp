@@ -30,9 +30,13 @@ class MainActivity : AppCompatActivity() {
         binding.articleRecyclerView.run {
             adapter = ArticleRecyclerAdapter(newsFromMemory) { articleIndex ->
                 val newsDetailIntent = Intent(this@MainActivity, NewsDetailsActivity::class.java)
-                newsDetailIntent.putExtra("article", newsFromMemory[articleIndex])
+                newsDetailIntent.putExtra(INTENT_EXTRA_ARTICLE, newsFromMemory[articleIndex])
                 startActivity(newsDetailIntent)
             }
         }
+    }
+
+    companion object {
+        const val INTENT_EXTRA_ARTICLE = "article"
     }
 }
