@@ -8,7 +8,7 @@ import kotlinx.parcelize.Parcelize
 data class Source(
     @field:Json(name = "id") val id: String? = null,
     @field:Json(name = "name") val name: String,
-    val category: CategoryType,
-    val language: LanguageType,
-    val country: CountryType,
+    val category: CategoryType? = null,
+    val language: LanguageType? = null,
+    val country: CountryType? = null,
 ) : Parcelable
