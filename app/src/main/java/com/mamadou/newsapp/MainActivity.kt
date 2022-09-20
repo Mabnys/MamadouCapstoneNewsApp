@@ -3,6 +3,7 @@ import android.content.Context
 import android.os.Bundle
 import android.content.Intent
 import android.net.ConnectivityManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.mamadou.newsapp.databinding.ActivityMainBinding
 import com.mamadou.newsapp.networking.NetworkStatusChecker
@@ -27,24 +28,21 @@ class MainActivity : AppCompatActivity() {
             val service = buildApiService()
             val remoteApi = RemoteApi(service)
             remoteApi.getArticles { articles, error ->
-                //need to check article is not empty
-//                if (error != null) {
-//
-//                }else {
-//
-//                }
+                if (error != null) {
+                    println("There is an error")
 
-                binding.articleRecyclerView.run {
-                    adapter = ArticleRecyclerAdapter(articles) { articleIndex ->
-                        val newsDetailIntent = Intent(this@MainActivity, NewsDetailsActivity::class.java)
-                        newsDetailIntent.putExtra(INTENT_EXTRA_ARTICLE, articles[articleIndex])
-                        startActivity(newsDetailIntent)
+                } else {
+                    binding.articleRecyclerView.run {
+                        adapter = ArticleRecyclerAdapter(articles) { articleIndex ->
+                            val newsDetailIntent = Intent(this@MainActivity, NewsDetailsActivity::class.java)
+                            newsDetailIntent.putExtra(INTENT_EXTRA_ARTICLE, articles[articleIndex])
+                            startActivity(newsDetailIntent)
+                        }
                     }
                 }
             }
         }, {
-            //Logic for not connected
-
+            Toast.makeText(this@MainActivity, "Disconnected", Toast.LENGTH_LONG).show()
         })
     }
 

@@ -11,6 +11,7 @@ class NetworkStatusChecker(private val connectivityManager: ConnectivityManager?
             action()
         } else {
             notConnectedAction()
+            println("********* There is no Internet Connection **********")
         }
     }
 
