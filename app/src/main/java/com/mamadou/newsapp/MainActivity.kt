@@ -23,12 +23,16 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-        networkStatusChecker.performIfConnectedToInternet {
+        networkStatusChecker.performIfConnectedToInternet ({
             val service = buildApiService()
             val remoteApi = RemoteApi(service)
-
             remoteApi.getArticles { articles, error ->
                 //need to check article is not empty
+//                if (error != null) {
+//
+//                }else {
+//
+//                }
 
                 binding.articleRecyclerView.run {
                     adapter = ArticleRecyclerAdapter(articles) { articleIndex ->
@@ -38,7 +42,10 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
-        }
+        }, {
+            //Logic for not connected
+
+        })
     }
 
     companion object {

@@ -19,12 +19,16 @@ class RemoteApi(private val apiService: RemoteApiService) {
                 val data = response.body()
 
                 if (data != null && data.articles.isNotEmpty()) {
+                    println("******* Call Request Received $response *********")
+                    println("********* See Articles Below $data **********")
+                    println("*********** Number Of Articles are ${response.body()!!.articles.size} ***********")
                     onArticlesReceived(data.articles, null)
                 } else {
                     onArticlesReceived(emptyList(), NullPointerException("No news available!"))
                 }
             }
             override fun onFailure(call: Call<GetNewsResponse>, error: Throwable) {
+                print("********* Call Request Failed **********")
                 onArticlesReceived(emptyList(), error)
             }
     })
