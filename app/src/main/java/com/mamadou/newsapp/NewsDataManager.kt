@@ -12,7 +12,7 @@ class NewsDataManager (private val context: Context) {
         val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context)
         val gson = Gson()
 
-        sharedPrefs.edit().putString("storeArticles",gson.toJson(list)).commit()
+        sharedPrefs.edit().putString(PREFS_ARTICLES_KEY,gson.toJson(list)).commit()
 
     }
 
@@ -28,6 +28,10 @@ class NewsDataManager (private val context: Context) {
 
         return gson.fromJson(storedArticles, object : TypeToken<List<Article>>() {}.type)
 
+    }
+
+    companion object {
+        const val PREFS_ARTICLES_KEY = "storeArticles"
     }
 }
 

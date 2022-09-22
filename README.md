@@ -60,3 +60,19 @@ All Homeworks branches related to this repo are and will be merge with the devel
 - [x] Refined UI design (Bolder news heading, lighter description font styles, use of CardView, appropriate padding, margins–you’re free to use your creativity here)
 - [x] Use of SharedPreferences to persist the news data for offline use
 
+
+## Week 5 Homework
+
+### *- Need to have:*
+- [x] News articles are fetched from News API instead of hardcoded data
+- [x] Proper parsing of JSON data is done
+- [x] Error handling - All exceptions/errors are handled gracefully (Network exception, json exception) by showing error messages
+- [x] Internet check before making network calls
+- [ ] Refresh button functionality to get the latest news data
+
+### *- Nice to have:*
+- [ ] Using Result/sealed classes for different error states (Loading, Success, Failure)
+- [ ] Making custom screens/dialogs for different error states
+- [ ] Use of logging interceptor to analyze each network request
+- [ ] Using Glide to load images
+
