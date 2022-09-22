@@ -3,16 +3,20 @@ import android.content.Context
 import android.os.Bundle
 import android.content.Intent
 import android.net.ConnectivityManager
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.mamadou.newsapp.databinding.ActivityMainBinding
 import com.mamadou.newsapp.networking.NetworkStatusChecker
 import com.mamadou.newsapp.networking.RemoteApi
 import com.mamadou.newsapp.networking.buildApiService
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
     private val networkStatusChecker by lazy {
         NetworkStatusChecker(this.getSystemService(Context.CONNECTIVITY_SERVICE)  as ConnectivityManager)
     }
@@ -29,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             val remoteApi = RemoteApi(service)
             remoteApi.getArticles { articles, error ->
                 if (error != null) {
-                    println("There is an error")
+                    Log.e("There is an error", error.toString())
 
                 } else {
                     binding.articleRecyclerView.run {

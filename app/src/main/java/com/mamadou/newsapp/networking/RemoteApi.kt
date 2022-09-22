@@ -1,5 +1,6 @@
 package com.mamadou.newsapp.networking
 
+import android.util.Log
 import com.mamadou.newsapp.models.Article
 import com.mamadou.newsapp.models.response.GetNewsResponse
 import retrofit2.Call
@@ -19,16 +20,16 @@ class RemoteApi(private val apiService: RemoteApiService) {
                 val data = response.body()
 
                 if (data != null && data.articles.isNotEmpty()) {
-                    println("******* Call Request Received $response *********")
-                    println("********* See Articles Below $data **********")
-                    println("*********** Number Of Articles are ${response.body()!!.articles.size} ***********")
+                    Log.i("Call Request Received", response.toString())
+                    Log.i("See Articles Below", data.toString())
+                    Log.i("Number Of Articles are", response.body()!!.articles.size.toString())
                     onArticlesReceived(data.articles, null)
                 } else {
                     onArticlesReceived(emptyList(), NullPointerException("No news available!"))
                 }
             }
             override fun onFailure(call: Call<GetNewsResponse>, error: Throwable) {
-                print("********* Call Request Failed **********")
+                Log.e("Call Request Failed", error.toString())
                 onArticlesReceived(emptyList(), error)
             }
     })
