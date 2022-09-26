@@ -79,7 +79,7 @@ All Homeworks branches related to this repo are and will be merge with the devel
 ## Week 6 Homework
 
 ### *- Need to have:*
-- [ ]Retrofit with coroutines is used for the networking layer
+- [ ] Retrofit with coroutines is used for the networking layer
 - [ ] Appropriate scope is used for each coroutine
 - [ ] Handle coroutine exceptions
 - [ ] All network requests are done on a background thread
