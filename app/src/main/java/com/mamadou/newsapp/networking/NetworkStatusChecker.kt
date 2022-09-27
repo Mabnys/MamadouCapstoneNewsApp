@@ -3,16 +3,22 @@ package com.mamadou.newsapp.networking
 import android.annotation.SuppressLint
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class NetworkStatusChecker(private val connectivityManager: ConnectivityManager?) {
 
-    inline fun performIfConnectedToInternet(action: () -> Unit, notConnectedAction: () -> Unit) {
-        if (hasInternetConnection()) {
-            action()
-        } else {
-            notConnectedAction()
-            println("********* There is no Internet Connection **********")
+    inline fun performIfConnectedToInternet(crossinline action: () -> Unit, crossinline notConnectedAction: () -> Unit) {
+        CoroutineScope(Dispatchers.IO).launch {
+            if (hasInternetConnection()) {
+                action()
+            } else {
+                notConnectedAction()
+                println("********* There is no Internet Connection **********")
+            }
         }
+
     }
 
     @SuppressLint("NewApi")
