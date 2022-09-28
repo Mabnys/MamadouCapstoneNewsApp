@@ -81,12 +81,12 @@ All Homeworks branches related to this repo are and will be merge with the devel
 ### *- Need to have:*
 - [x] Retrofit with coroutines is used for the networking layer
 - [x] Appropriate scope is used for each coroutine
-- [ ] Handle coroutine exceptions
-- [ ] All network requests are done on a background thread
+- [x] Handle coroutine exceptions
+- [x] All network requests are done on a background thread
 
 
 ### *- Nice to have:*
-- [ ] Handle UI responsively when making network requests, e.g. show loading indicator until response returns
+- [x] Handle UI responsively when making network requests, e.g. show loading indicator until response returns
 - [ ] Implement Repository (just for API layer - there is no local database yet)
 - [ ] Proper use of MutableLiveData and LiveData with proper encapsulation
 
