@@ -68,7 +68,7 @@ All Homeworks branches related to this repo are and will be merge with the devel
 - [x] Proper parsing of JSON data is done
 - [x] Error handling - All exceptions/errors are handled gracefully (Network exception, json exception) by showing error messages
 - [x] Internet check before making network calls
-- [ ] Refresh button functionality to get the latest news data
+- [x] Refresh button functionality to get the latest news data
 
 ### *- Nice to have:*
 - [ ] Using Result/sealed classes for different error states (Loading, Success, Failure)
