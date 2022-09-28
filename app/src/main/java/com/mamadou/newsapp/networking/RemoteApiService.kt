@@ -5,7 +5,7 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface RemoteApiService {
-    @GET("/v2/top-headlines?country=US")
-    fun getArticles(@Query("apiKey") token: String): Call<GetNewsResponse>
 
+    @GET("/v2/top-headlines?country=US")
+   suspend fun getArticles(@Query("apiKey") token: String): GetNewsResponse
 }
