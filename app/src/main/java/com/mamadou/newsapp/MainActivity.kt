@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity() {
                                 articleAdapter.updateArticle(result.value)
                         }
                         is CustomResult.Failure -> {
+                            Toast.makeText(this@MainActivity, "No Data Available", Toast.LENGTH_LONG).show()
                         }
                     }
                     binding.swiperefresh.isRefreshing = false
