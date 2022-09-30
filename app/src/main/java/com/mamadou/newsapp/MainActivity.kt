@@ -62,12 +62,12 @@ class MainActivity : AppCompatActivity() {
                             Toast.makeText(this@MainActivity, "No Data Available", Toast.LENGTH_LONG).show()
                         }
                     }
-                    binding.swiperefresh.isRefreshing = false
                 }
             }
         }, {
             Toast.makeText(this@MainActivity, "Disconnected", Toast.LENGTH_LONG).show()
         })
+        binding.swiperefresh.isRefreshing = false
 
     }
 
