@@ -4,7 +4,7 @@
 
 This repo is created to store the homeworks related to the repo.
 
-***Note that all the branches and homeworks have their own branches that are merged to the development branch.***
+***Note that all the homeworks have their own branches that are merged to the development branch.***
 
 All Homeworks branches related to this repo are and will be merge with the development branch.
 
@@ -68,11 +68,25 @@ All Homeworks branches related to this repo are and will be merge with the devel
 - [x] Proper parsing of JSON data is done
 - [x] Error handling - All exceptions/errors are handled gracefully (Network exception, json exception) by showing error messages
 - [x] Internet check before making network calls
-- [ ] Refresh button functionality to get the latest news data
+- [x] Refresh button functionality to get the latest news data
 
 ### *- Nice to have:*
 - [ ] Using Result/sealed classes for different error states (Loading, Success, Failure)
-- [ ] Making custom screens/dialogs for different error states
+- [x] Making custom screens/dialogs for different error states
 - [ ] Use of logging interceptor to analyze each network request
 - [ ] Using Glide to load images
+
+## Week 6 Homework
+
+### *- Need to have:*
+- [x] Retrofit with coroutines is used for the networking layer
+- [x] Appropriate scope is used for each coroutine
+- [x] Handle coroutine exceptions
+- [x] All network requests are done on a background thread
+
+
+### *- Nice to have:*
+- [x] Handle UI responsively when making network requests, e.g. show loading indicator until response returns
+- [ ] Implement Repository (just for API layer - there is no local database yet)
+- [ ] Proper use of MutableLiveData and LiveData with proper encapsulation
 

@@ -1,16 +1,16 @@
 package com.mamadou.newsapp
 
+import android.annotation.SuppressLint
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mamadou.newsapp.models.Article
 import com.mamadou.newsapp.views.ArticleView
 
 class ArticleRecyclerAdapter(
-    articleList: List<Article>,
-    private val onArticleTap: (Int) -> Unit
+    private val onArticleTap: (Article) -> Unit
 ) : RecyclerView.Adapter<ArticleViewHolder>() {
 
-    private val articles = articleList.toMutableList()
+    private var articles = mutableListOf<Article>()
 
     override  fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
         val articleView = ArticleView(parent.context)
@@ -24,12 +24,18 @@ class ArticleRecyclerAdapter(
 
     override fun onBindViewHolder(holder: ArticleViewHolder, positon: Int) {
         holder.bindData(articles[positon]){
-            onArticleTap(positon)
+            onArticleTap(articles[positon])
         }
     }
 
     override fun getItemCount(): Int {
         return articles.size
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateArticle(newArticle: List<Article>) {
+        articles = newArticle.toMutableList()
+        notifyDataSetChanged()
     }
 
 }
