@@ -4,22 +4,24 @@ import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
-import androidx.work.Constraints
-import androidx.work.NetworkType
-import androidx.work.OneTimeWorkRequestBuilder
-import androidx.work.WorkManager
+import androidx.lifecycle.lifecycleScope
+import androidx.work.*
 import com.bumptech.glide.Glide
 import com.mamadou.newsapp.databinding.ActivityNewsDetailsBinding
 import com.mamadou.newsapp.models.Article
 import com.mamadou.newsapp.worker.DownloadWorker
 import com.mamadou.newsapp.worker.FileClearWorker
+import com.mamadou.newsapp.worker.SepiaFilterWorker
 import kotlinx.coroutines.*
 
 class NewsDetailsActivity : AppCompatActivity() {
+
+    private lateinit var binding : ActivityNewsDetailsBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val binding =  ActivityNewsDetailsBinding.inflate(layoutInflater)
+       binding =  ActivityNewsDetailsBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
 
@@ -27,12 +29,8 @@ class NewsDetailsActivity : AppCompatActivity() {
 
         if (article != null) {
             binding.articleTitleTextView.text = article.title
-            Glide.with(this)
-                .load(article.urlToImage)
-                .into(binding.articleUrlImageView)
 
-            //downloadImage() call
-            downloadImage()
+            downloadImage(article.urlToImage)
 
             binding.articleAuthorTextView.text = article.author
             binding.articleDescriptionTextView.text = article.description
@@ -42,8 +40,7 @@ class NewsDetailsActivity : AppCompatActivity() {
         }
     }
 
-
-    private fun downloadImage() {
+    private fun downloadImage(articleURL: String) {
         val constraints = Constraints.Builder()
             .setRequiresBatteryNotLow(true)
             .setRequiresStorageNotLow(true)
@@ -53,18 +50,28 @@ class NewsDetailsActivity : AppCompatActivity() {
         val clearFilesWorker = OneTimeWorkRequestBuilder<FileClearWorker>()
             .build()
 
+        val data = Data.Builder()
+            .putString("articleUrl", articleURL)
+            .build()
+
         val downloadRequest = OneTimeWorkRequestBuilder<DownloadWorker>()
+            .setConstraints(constraints)
+            .setInputData(data)
+            .build()
+
+        val sepiaFilterWorker = OneTimeWorkRequestBuilder<SepiaFilterWorker>()
             .setConstraints(constraints)
             .build()
 
         val workManager = WorkManager.getInstance(this)
         workManager.beginWith(clearFilesWorker)
             .then(downloadRequest)
+            .then(sepiaFilterWorker)
             .enqueue()
 
-        workManager.getWorkInfoByIdLiveData(downloadRequest.id).observe(this, Observer { info ->
+        workManager.getWorkInfoByIdLiveData(sepiaFilterWorker.id).observe(this, Observer { info ->
             if (info.state.isFinished) {
-                val imagePath = info.outputData.getString("image_path")
+                val imagePath = info.outputData.getString(INFO_IMAGE_PATH)
 
                 if (!imagePath.isNullOrEmpty()) {
                     displayImage(imagePath)
@@ -74,10 +81,9 @@ class NewsDetailsActivity : AppCompatActivity() {
     }
 
     private fun displayImage(imagePath: String) {
-        GlobalScope.launch(Dispatchers.Main) {
+        lifecycleScope.launch(Dispatchers.Main) {
             val bitmap = loadImageFromFile(imagePath)
-
-//            image.setImageBitmap(bitmap)
+            binding.articleUrlImageView.setImageBitmap(bitmap)
         }
     }
 
@@ -88,5 +94,6 @@ class NewsDetailsActivity : AppCompatActivity() {
 
     companion object {
         const val INTENT_EXTRA_ARTICLE = "article"
+        const val INFO_IMAGE_PATH = "image_path"
     }
 }

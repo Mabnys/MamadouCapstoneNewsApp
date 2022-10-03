@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import androidx.work.workDataOf
-import com.bumptech.glide.Glide
 import java.io.File
 import java.io.FileOutputStream
 import java.net.HttpURLConnection
@@ -13,17 +12,13 @@ import java.net.URL
 class DownloadWorker(context: Context, workerParameters: WorkerParameters) :
     Worker(context, workerParameters) {
     override fun doWork(): Result {
-        //Update Note: Image URL has changed.
-        val imageUrl = URL("https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__480.jpg")
+
+        val imageUrl = URL(inputData.getString(INPUT_ARTICLE_URL))
         val connection = imageUrl.openConnection() as HttpURLConnection
         connection.doInput = true
         connection.connect()
 
-//
-//        val file: File = Glide.with(this).asFile().load(url).submit().get()
-//        val imagePath: String = file.path
-
-        val imagePath = "owl_image_${System.currentTimeMillis()}.jpg"
+        val imagePath = "articleUrlImageView_${System.currentTimeMillis()}.jpg"
         val inputStream = connection.inputStream
         val file = File(applicationContext.externalMediaDirs.first(), imagePath)
 
@@ -41,7 +36,12 @@ class DownloadWorker(context: Context, workerParameters: WorkerParameters) :
 
             output.flush()
         }
-        val output = workDataOf("image_path" to file.absolutePath)
+        val output = workDataOf(INPUT_IMAGE_PATH to file.absolutePath)
         return Result.success(output)
+    }
+
+    companion object {
+        const val INPUT_IMAGE_PATH = "image_path"
+        const val INPUT_ARTICLE_URL = "articleUrl"
     }
 }
