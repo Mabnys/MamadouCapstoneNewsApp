@@ -6,7 +6,6 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.work.*
-import com.bumptech.glide.Glide
 import com.mamadou.newsapp.databinding.ActivityNewsDetailsBinding
 import com.mamadou.newsapp.models.Article
 import com.mamadou.newsapp.worker.DownloadWorker
