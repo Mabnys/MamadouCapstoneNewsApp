@@ -71,7 +71,7 @@ All Homeworks branches related to this repo are and will be merge with the devel
 - [x] Refresh button functionality to get the latest news data
 
 ### *- Nice to have:*
-- [ ] Using Result/sealed classes for different error states (Loading, Success, Failure)
+- [x] Using Result/sealed classes for different error states (Loading, Success, Failure)
 - [x] Making custom screens/dialogs for different error states
 - [ ] Use of logging interceptor to analyze each network request
 - [x] Using Glide to load images
