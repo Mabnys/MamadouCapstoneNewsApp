@@ -2,6 +2,7 @@ package com.mamadou.newsapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.bumptech.glide.Glide
 import com.mamadou.newsapp.databinding.ActivityNewsDetailsBinding
 import com.mamadou.newsapp.models.Article
 
@@ -17,6 +18,9 @@ class NewsDetailsActivity : AppCompatActivity() {
 
         if (article != null) {
             binding.articleTitleTextView.text = article.title
+            Glide.with(this)
+                .load(article.urlToImage)
+                .into(binding.articleUrlImageView)
             binding.articleAuthorTextView.text = article.author
             binding.articleDescriptionTextView.text = article.description
             binding.articleUrlTextView.text = article.url
