@@ -74,7 +74,7 @@ All Homeworks branches related to this repo are and will be merge with the devel
 - [ ] Using Result/sealed classes for different error states (Loading, Success, Failure)
 - [x] Making custom screens/dialogs for different error states
 - [ ] Use of logging interceptor to analyze each network request
-- [ ] Using Glide to load images
+- [x] Using Glide to load images
 
 ## Week 6 Homework
 
