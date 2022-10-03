@@ -93,18 +93,18 @@ All Homeworks branches related to this repo are and will be merge with the devel
 ## Week 7 Homework
 
 ### *- Need to have:*
-- [ ] A Details screen that adds some sort of filter to the image
-- [ ] Proper use of WorkManager
+- [x] A Details screen that adds some sort of filter to the image
+- [x] Proper use of WorkManager
   #### . Use of [input data](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/define-work#input_output)
    #### . Handling different [states](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/states-and-observation) of WorkManager 
     #### . Proper use of constraints (Only apply the filter if battery is not low) 
-- [ ] Adding 3 constraints to the Worker
+- [x] Adding 3 constraints to the Worker
   #### . [See here](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/define-work#work-constraints) for list of possible constraints
 
 
 ### *- Nice to have:*
-- [ ] Saving the file using FileOutputStream
-- [ ] Apply more than one worker to the WorkManager
+- [x] Saving the file using FileOutputStream
+- [x] Apply more than one worker to the WorkManager
   #### . You could add multiple image filter types (perhaps a blurry image filter and a sepia filter)
   #### . You could also wrap the article fetching logic (retrofit call to the API) behind a worker! 
   #### . Or, come up with your own set of work to wrap behind a Worker!
