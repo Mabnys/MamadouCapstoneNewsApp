@@ -136,7 +136,7 @@ All Homeworks branches related to this repo are and will be merge with the devel
 - [ ] Article Search
   * Use SearchView or a more robust search UI
 - [ ] Use a PeriodicWorkRequest to periodically fetch new article data from the NewsAPI.
-  * See optional section for more details
+  * See *optional* section for more details
 
 
 
