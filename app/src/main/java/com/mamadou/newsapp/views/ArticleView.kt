@@ -1,11 +1,19 @@
 package com.mamadou.newsapp.views
 
 import android.content.Context
+import android.graphics.BitmapFactory
 import android.util.AttributeSet
+import android.util.Log
 import  android.view.LayoutInflater
 import android.widget.LinearLayout
+import com.bumptech.glide.Glide
 import com.mamadou.newsapp.models.Article
 import com.mamadou.newsapp.databinding.ArticleViewBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import java.net.HttpURLConnection
+import java.net.URL
 
 class ArticleView  @JvmOverloads constructor(
     context: Context,
@@ -22,6 +30,9 @@ class ArticleView  @JvmOverloads constructor(
 
     fun getData(article: Article) {
         setArticleTitle(article.title)
+        Glide.with(this)
+            .load(article.urlToImage)
+            .into(binding.articleUrlImageView)
         setArticleAuthor(article.author)
         setArticleDescription(article.description)
         setArticleUrl(article.url)

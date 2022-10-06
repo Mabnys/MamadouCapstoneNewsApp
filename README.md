@@ -71,10 +71,10 @@ All Homeworks branches related to this repo are and will be merge with the devel
 - [x] Refresh button functionality to get the latest news data
 
 ### *- Nice to have:*
-- [ ] Using Result/sealed classes for different error states (Loading, Success, Failure)
+- [x] Using Result/sealed classes for different error states (Loading, Success, Failure)
 - [x] Making custom screens/dialogs for different error states
 - [ ] Use of logging interceptor to analyze each network request
-- [ ] Using Glide to load images
+- [x] Using Glide to load images
 
 ## Week 6 Homework
 
@@ -89,4 +89,24 @@ All Homeworks branches related to this repo are and will be merge with the devel
 - [x] Handle UI responsively when making network requests, e.g. show loading indicator until response returns
 - [ ] Implement Repository (just for API layer - there is no local database yet)
 - [ ] Proper use of MutableLiveData and LiveData with proper encapsulation
+
+## Week 7 Homework
+
+### *- Need to have:*
+- [x] A Details screen that adds some sort of filter to the image
+- [x] Proper use of WorkManager
+  #### . Use of [input data](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/define-work#input_output)
+   #### . Handling different [states](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/states-and-observation) of WorkManager 
+    #### . Proper use of constraints (Only apply the filter if battery is not low) 
+- [x] Adding 3 constraints to the Worker
+  #### . [See here](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/define-work#work-constraints) for list of possible constraints
+
+
+### *- Nice to have:*
+- [x] Saving the file using FileOutputStream
+- [x] Apply more than one worker to the WorkManager
+  #### . You could add multiple image filter types (perhaps a blurry image filter and a sepia filter)
+  #### . You could also wrap the article fetching logic (retrofit call to the API) behind a worker! 
+  #### . Or, come up with your own set of work to wrap behind a Worker!
+
 
