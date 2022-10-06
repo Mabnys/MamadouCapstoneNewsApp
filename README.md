@@ -29,9 +29,9 @@ All Homeworks branches related to this repo are and will be merge with the devel
 
 ### *- Need to have (for passing grade):*
 - [x] Switch following Source Properties to use enum classes:
-  #### . Category
-   #### . Language
-    #### . Country    
+  * #### Category
+  * #### Language
+  * #### Country    
 - [x] Create a  **NewsService** with a single method to get articles.
 - [x] Reference **NewsService** from Activity and get the articles.
 - [x] Your main activity layout should have a ScrollView at the top level.
@@ -95,18 +95,48 @@ All Homeworks branches related to this repo are and will be merge with the devel
 ### *- Need to have:*
 - [x] A Details screen that adds some sort of filter to the image
 - [x] Proper use of WorkManager
-  #### . Use of [input data](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/define-work#input_output)
-   #### . Handling different [states](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/states-and-observation) of WorkManager 
-    #### . Proper use of constraints (Only apply the filter if battery is not low) 
+  * Use of [input data](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/define-work#input_output)
+  * Handling different [states](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/states-and-observation) of WorkManager 
+  * Proper use of constraints (Only apply the filter if battery is not low) 
 - [x] Adding 3 constraints to the Worker
-  #### . [See here](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/define-work#work-constraints) for list of possible constraints
+  * [See here](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/define-work#work-constraints) for list of possible constraints
 
 
 ### *- Nice to have:*
 - [x] Saving the file using FileOutputStream
 - [x] Apply more than one worker to the WorkManager
-  #### . You could add multiple image filter types (perhaps a blurry image filter and a sepia filter)
-  #### . You could also wrap the article fetching logic (retrofit call to the API) behind a worker! 
-  #### . Or, come up with your own set of work to wrap behind a Worker!
+  * You could add multiple image filter types (perhaps a blurry image filter and a sepia filter)
+  * You could also wrap the article fetching logic (retrofit call to the API) behind a worker! 
+  * Or, come up with your own set of work to wrap behind a Worker!
+  
+## Week 8 Homework
+
+### *- Need to have:*
+- [ ] Offline mode
+  * **NewsDatabase** implementation
+  * **Article** with **@Entity** and **@PimaryKey** on a new id property
+  * **SourceDao** with **@Entity** and **@PrimaryKey** on existing id property
+  * DAO for article and source entities with getArticles()/getSources(), 
+     addArticles()/addSources(), and clearArticles() methods.
+- [ ] Article Search
+  * EditText and Button to search articles
+  * Repository and DAO methods to query the articles 
+ 
+- [ ] Download Only Over WiFi
+   * Create a Preference DataStore
+   * Feed in the datastore to the repository and fetch the key/value from the datastore. 
+   * Toggle menu icon in toolbar or ToggleButton/Checkbox on the main, list layout
+   * Toggle menu icon in toolbar or ToggleButton/Checkbox on the main, list layout
+
+
+### *- Nice to have:*
+- [ ] Offline mode
+  * Relationships defined on **Article** and **Source** entities. One **Source** can have many **Article** so the relationship is 
+  [one-to-many](https://developer.android.com/training/data-storage/room/relationships#one-to-many).
+- [ ] Article Search
+  * Use SearchView or a more robust search UI
+- [ ] Use a PeriodicWorkRequest to periodically fetch new article data from the NewsAPI.
+  * See optional section for more details
+
 
 
