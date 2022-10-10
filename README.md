@@ -112,7 +112,7 @@ All Homeworks branches related to this repo are and will be merge with the devel
 ## Week 8 Homework
 
 ### *- Need to have:*
-- [ ] Offline mode
+- [x] Offline mode
   * **NewsDatabase** implementation
   * **Article** with **@Entity** and **@PimaryKey** on a new id property
   * **SourceDao** with **@Entity** and **@PrimaryKey** on existing id property
@@ -130,7 +130,7 @@ All Homeworks branches related to this repo are and will be merge with the devel
 
 
 ### *- Nice to have:*
-- [ ] Offline mode
+- [x] Offline mode
   * Relationships defined on **Article** and **Source** entities. One **Source** can have many **Article** so the relationship is 
   [one-to-many](https://developer.android.com/training/data-storage/room/relationships#one-to-many).
 - [ ] Article Search
