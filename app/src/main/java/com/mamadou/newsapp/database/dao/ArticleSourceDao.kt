@@ -8,7 +8,7 @@ import com.mamadou.newsapp.models.relations.ArticleSource
 interface ArticleSourceDao {
     // Fetching all the articles that share the same articleTitle
     @Transaction
-    @Query("SELECT * FROM sources WHERE name = :articleTitle")
+    @Query("SELECT * FROM articles WHERE title = :articleTitle")
     fun getArticleFromSources(articleTitle: String): ArticleSource
 
 }
