@@ -20,8 +20,8 @@ class NewsRepositoryImpl(
     private val articleDao: ArticleDao,
     private val articleSourceDao: ArticleSourceDao,
     private val sourceDao: SourceDao,
-    private val dataStore: PreferencesDataStore,
     private val newApiService: RemoteApiService,
+    private val dataStore: PreferencesDataStore,
     private val networkStatusChecker: NetworkStatusChecker
 
     ) : NewsRepository {
