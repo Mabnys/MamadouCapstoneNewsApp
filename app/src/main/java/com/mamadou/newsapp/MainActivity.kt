@@ -1,6 +1,9 @@
 package com.mamadou.newsapp
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -25,14 +28,45 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.articleRecyclerView.run {
             adapter = articleAdapter
+
         }
         fetchArticles()
 
+        val queryTextListener = object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                // do nothing, search is done on text changes
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                newText?.let { searchQuery ->
+                    viewModel.searchArticles(searchQuery)
+                }
+                return true
+            }
+        }
+
+        binding.searchView?.setOnQueryTextListener(queryTextListener)
 
 
         binding.swiperefresh.setOnRefreshListener {
             fetchArticles()
         }
+    }
+
+//    override fun onViewCreated(view: View, saveInstanceState: Bundle?) {
+//        super.onViewCreated(view, saveInstanceState)
+//
+//    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId != R.id.wifi_switch) return true
+        return true
     }
 
     private val articleAdapter =

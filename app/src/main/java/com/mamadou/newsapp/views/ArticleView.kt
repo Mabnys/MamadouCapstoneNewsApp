@@ -2,11 +2,11 @@ package com.mamadou.newsapp.views
 
 import android.content.Context
 import android.util.AttributeSet
-import  android.view.LayoutInflater
+import android.view.LayoutInflater
 import android.widget.LinearLayout
 import com.bumptech.glide.Glide
-import com.mamadou.newsapp.models.Article
 import com.mamadou.newsapp.databinding.ArticleViewBinding
+import com.mamadou.newsapp.models.Article
 
 
 class ArticleView  @JvmOverloads constructor(
