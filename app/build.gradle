@@ -23,7 +23,7 @@ android {
     buildTypes {
         buildFeatures {
             viewBinding true
-            dataBinding true
+//            dataBinding true
         }
         release {
             minifyEnabled false
