@@ -118,7 +118,7 @@ All Homeworks branches related to this repo are and will be merge with the devel
   * **SourceDao** with **@Entity** and **@PrimaryKey** on existing id property
   * DAO for article and source entities with getArticles()/getSources(), 
      addArticles()/addSources(), and clearArticles() methods.
-- [ ] Article Search
+- [x] Article Search
   * EditText and Button to search articles
   * Repository and DAO methods to query the articles 
  
