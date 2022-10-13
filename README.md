@@ -122,7 +122,7 @@ All Homeworks branches related to this repo are and will be merge with the devel
   * EditText and Button to search articles
   * Repository and DAO methods to query the articles 
  
-- [ ] Download Only Over WiFi
+- [x] Download Only Over WiFi
    * Create a Preference DataStore
    * Feed in the datastore to the repository and fetch the key/value from the datastore. 
    * Toggle menu icon in toolbar or ToggleButton/Checkbox on the main, list layout
@@ -133,7 +133,7 @@ All Homeworks branches related to this repo are and will be merge with the devel
 - [x] Offline mode
   * Relationships defined on **Article** and **Source** entities. One **Source** can have many **Article** so the relationship is 
   [one-to-many](https://developer.android.com/training/data-storage/room/relationships#one-to-many).
-- [ ] Article Search
+- [x] Article Search
   * Use SearchView or a more robust search UI
 - [ ] Use a PeriodicWorkRequest to periodically fetch new article data from the NewsAPI.
   * See *optional* section for more details
