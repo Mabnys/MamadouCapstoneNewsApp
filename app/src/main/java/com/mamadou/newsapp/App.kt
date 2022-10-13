@@ -3,6 +3,7 @@ package com.mamadou.newsapp
 import android.app.Application
 import com.google.gson.Gson
 import com.mamadou.newsapp.database.NewsDatabase
+import com.mamadou.newsapp.networking.buildApiService
 import com.mamadou.newsapp.repository.NewsRepository
 import com.mamadou.newsapp.repository.NewsRepositoryImpl
 
@@ -13,26 +14,29 @@ class App : Application() {
 
         private val database: NewsDatabase by lazy {
             NewsDatabase.buildDatabase(instance)
-
         }
 
-        val repository: NewsRepository by lazy {
-            NewsRepositoryImpl(
-                database.ArticleDao(),
-                database.ArticleSourceDao(),
-                database.SourceDao()
-            )
+        private val newsApiService by lazy {
+            buildApiService()
         }
 
         val gson by lazy { Gson() }
 
+        val newsRepository: NewsRepository by lazy {
+            NewsRepositoryImpl(
+                database.articleDao(),
+                database.articleSourceDao(),
+                database.sourceDao(),
+                newsApiService
+            )
+        }
 
 
-//        override fun onCreate() {
-//            super.onCreate()
-//            instance = this
-//        }
+    }
 
+    override fun onCreate() {
+        super.onCreate()
+        instance = this
     }
 
 }

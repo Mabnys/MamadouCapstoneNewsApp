@@ -3,7 +3,6 @@ package com.mamadou.newsapp.database.dao
 import androidx.room.*
 import androidx.room.OnConflictStrategy.REPLACE
 import com.mamadou.newsapp.models.Article
-import com.mamadou.newsapp.models.relations.ArticleSource
 
 @Dao
 interface ArticleDao {
@@ -15,5 +14,8 @@ interface ArticleDao {
 
     @Query("DELETE FROM articles")
     suspend fun clearArticles()
+
+    @Query("SELECT * FROM articles WHERE title LIKE :search")
+    suspend fun searchArticles(search: String): List<Article>
 
 }

@@ -8,10 +8,8 @@ import com.mamadou.newsapp.models.Source
 class SourceConverter {
 
     @TypeConverter
-    fun fromSources(source: Source) = App.gson.toJson(source)
+    fun fromSources(source: Source): String = App.gson.toJson(source)
 
     @TypeConverter
-    fun toSources(json: String) = App.gson.fromJson(json, Source::class.java)
-
-
+    fun toSources(json: String): Source = App.gson.fromJson(json, Source::class.java)
 }

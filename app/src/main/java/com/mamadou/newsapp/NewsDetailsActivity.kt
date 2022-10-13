@@ -29,7 +29,7 @@ class NewsDetailsActivity : AppCompatActivity() {
         if (article != null) {
             binding.articleTitleTextView.text = article.title
 
-            downloadImage(article.urlToImage)
+            article?.urlToImage?.let { downloadImage(it) }
 
             binding.articleAuthorTextView.text = article.author
             binding.articleDescriptionTextView.text = article.description

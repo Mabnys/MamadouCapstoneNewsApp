@@ -33,10 +33,10 @@ abstract class NewsDatabase : RoomDatabase() {
         }
     }
 
-    abstract fun ArticleDao(): ArticleDao
+    abstract fun articleDao(): ArticleDao
 
-    abstract fun ArticleSourceDao(): ArticleSourceDao
+    abstract fun articleSourceDao(): ArticleSourceDao
 
-    abstract fun SourceDao(): SourceDao
+    abstract fun sourceDao(): SourceDao
 
 }
