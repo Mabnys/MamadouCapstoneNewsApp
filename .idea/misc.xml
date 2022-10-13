@@ -7,6 +7,8 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_news_details.xml" value="0.1" />
         <entry key="app/src/main/res/layout/article_view.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/menu.xml" value="0.14628623188405798" />
+        <entry key="app/src/main/res/layout/switch_item.xml" value="0.21822916666666667" />
       </map>
     </option>
   </component>

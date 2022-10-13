@@ -1,22 +1,12 @@
 package com.mamadou.newsapp
-import android.content.Context
-import android.os.Bundle
 import android.content.Intent
-import android.net.ConnectivityManager
+import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import com.mamadou.newsapp.databinding.ActivityMainBinding
-import com.mamadou.newsapp.networking.NetworkStatusChecker
-import com.mamadou.newsapp.networking.RemoteApi
-import com.mamadou.newsapp.networking.buildApiService
 import com.mamadou.newsapp.utils.CustomResult
 import com.mamadou.newsapp.viewmodels.NewsListViewModel
-import androidx.activity.viewModels
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.Dispatchers.Main
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
 
@@ -79,6 +69,7 @@ class MainActivity : AppCompatActivity() {
             }
 //        }, {
 //            Toast.makeText(this@MainActivity, "Disconnected", Toast.LENGTH_LONG).show()
+        // println("Make sure you're connected to the Internet")
 //        })
         binding.swiperefresh.isRefreshing = false
 
