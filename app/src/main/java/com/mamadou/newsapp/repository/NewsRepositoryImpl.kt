@@ -35,7 +35,7 @@ class NewsRepositoryImpl(
             Log.i(TAG, "newFromLocalDb size = ${newsFromLocalDb.size}")
 
             val isDownloadOverWifiOnly = dataStore.isDownloadOverWifiOnly().first()
-            if (!isDownloadOverWifiOnly || (isDownloadOverWifiOnly && networkStatusChecker.hasWifiConnection())) {
+            if (!isDownloadOverWifiOnly ||  networkStatusChecker.hasWifiConnection()) {
                 try {
                     val newsFromNetwork = newApiService
                         .getArticles(TOKEN_KEY)
