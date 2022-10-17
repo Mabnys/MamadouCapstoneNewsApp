@@ -5,6 +5,7 @@
     <item
         android:id="@+id/wifi_switch_items"
         android:title="@string/download_only_over_wifi"
+        android:textSize="10dp"
         app:actionLayout="@layout/switch_item"
         app:showAsAction="always" />
 </menu>

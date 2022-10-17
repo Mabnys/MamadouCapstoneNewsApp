@@ -19,6 +19,11 @@ class MainActivity : AppCompatActivity() {
     private val viewModel: MainActivityViewModel by viewModels {
         MainActivityViewModel.Factory()
     }
+    private val viewsModel by viewModels<NewsListViewModel> {
+        NewsListViewModel.Factory(
+            newsRepo = App.newsRepository
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +34,26 @@ class MainActivity : AppCompatActivity() {
             adapter = articleAdapter
 
         }
-        fetchArticles()
+//        fetchArticles()
+
+    //    viewsModel.fetchArticles()
+
+        viewsModel.articles.observe(this) { result ->
+            when(result) {
+                is CustomResult.Success -> {
+                    articleAdapter.updateArticle(result.value)
+                }
+                is CustomResult.Failure -> {
+                    Toast.makeText(this@MainActivity, "No Data Available", Toast.LENGTH_LONG).show()
+                }
+            }
+            binding.swiperefresh.isRefreshing = false
+        }
+
+        binding.swiperefresh.setOnRefreshListener {
+//            fetchArticles()
+            viewsModel.fetchArticles()
+        }
 
         val queryTextListener = object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -46,10 +70,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.searchView.setOnQueryTextListener(queryTextListener)
 
-
-        binding.swiperefresh.setOnRefreshListener {
-            fetchArticles()
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -85,38 +105,33 @@ class MainActivity : AppCompatActivity() {
             startActivity(newsDetailIntent)
         }
 
-    private val viewsModel by viewModels<NewsListViewModel> {
-        NewsListViewModel.Factory(
-            newsRepo = App.newsRepository
-        )
-    }
+//    private fun fetchArticles() {
+//   //     networkStatusChecker.performIfConnectedToInternet ({
+//            binding.swiperefresh.isRefreshing = true
+//        //    lifecycleScope.launch(IO) {
+////        viewsModel.articles.observe(this) { result ->
+//          viewsModel.articles.observe(this) { result ->
+////                val result = remoteApi.getArticles()
+//             //   withContext(Main) {
+//                    when(result) {
+//                        is CustomResult.Success -> {
+//                                articleAdapter.updateArticle(result.value)
+//                        }
+//                        is CustomResult.Failure -> {
+//                            Toast.makeText(this@MainActivity, "No Data Available", Toast.LENGTH_LONG).show()
+//                        }
+//                    }
+//              //  }
+//            }
+////        }, {
+////            Toast.makeText(this@MainActivity, "Disconnected", Toast.LENGTH_LONG).show()
+//        // println("Make sure you're connected to the Internet")
+////        })
+//        binding.swiperefresh.isRefreshing = false
+//
+//    }
 
 
-
-    private fun fetchArticles() {
-   //     networkStatusChecker.performIfConnectedToInternet ({
-            binding.swiperefresh.isRefreshing = true
-        //    lifecycleScope.launch(IO) {
-        viewsModel.articles.observe(this) { result ->
-//                val result = remoteApi.getArticles()
-             //   withContext(Main) {
-                    when(result) {
-                        is CustomResult.Success -> {
-                                articleAdapter.updateArticle(result.value)
-                        }
-                        is CustomResult.Failure -> {
-                            Toast.makeText(this@MainActivity, "No Data Available", Toast.LENGTH_LONG).show()
-                        }
-                    }
-              //  }
-            }
-//        }, {
-//            Toast.makeText(this@MainActivity, "Disconnected", Toast.LENGTH_LONG).show()
-        // println("Make sure you're connected to the Internet")
-//        })
-        binding.swiperefresh.isRefreshing = false
-
-    }
 
 
     companion object {
