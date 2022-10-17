@@ -40,6 +40,7 @@ class NewsRepositoryImpl(
                     val newsFromNetwork = newApiService
                         .getArticles(TOKEN_KEY)
                         .articles
+                    Log.d("RefreshTest","Data fetch from Network")
                     emit(CustomResult.Success(newsFromNetwork))
                     if (newsFromNetwork.isNotEmpty()) {
                         articleDao.clearArticles()
