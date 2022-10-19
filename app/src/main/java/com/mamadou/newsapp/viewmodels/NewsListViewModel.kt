@@ -22,8 +22,11 @@ class NewsListViewModel(
         }
     }
 
+    private val TAG = this.javaClass.simpleName
+
     init {
         fetchArticles()
+        Log.d(TAG,"Here are the list of articles")
     }
 
     fun fetchArticles() {
@@ -32,7 +35,7 @@ class NewsListViewModel(
                 .getArticles()
                 .onEach { newArticle ->
                     _articles.postValue(newArticle)
-                    Log.d("ARTICLE", newArticle.toString())
+                    Log.d(TAG, newArticle.toString())
                 }
                 .collect()
         }

@@ -1,6 +1,7 @@
 package com.mamadou.newsapp
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.widget.SearchView
 import android.widget.Toast
@@ -25,6 +26,8 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
+    private val TAG = this.javaClass.simpleName
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -35,13 +38,17 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        Log.d(TAG, "onCreate(): Current State")
+
         viewsModel.articles.observe(this) { result ->
             when(result) {
                 is CustomResult.Success -> {
                     articleAdapter.updateArticle(result.value)
+                    Log.d(TAG, "Updating our news' article")
                 }
                 is CustomResult.Failure -> {
                     Toast.makeText(this@MainActivity, "No Data Available", Toast.LENGTH_LONG).show()
+                    Log.e(TAG, "Ops!! No news Available.")
                 }
             }
             Toast.makeText(this@MainActivity, "Refreshing...", Toast.LENGTH_LONG).show()
@@ -65,8 +72,8 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
         }
-
         binding.searchView.setOnQueryTextListener(queryTextListener)
+        Log.d(TAG, "onCreate(): method finish")
 
     }
 
@@ -81,10 +88,12 @@ class MainActivity : AppCompatActivity() {
             if (isDownloadOverWifiOnly) {
                 if (switch != null) {
                     switch.text = getString(R.string.switch_on, switchItem.title)
+                    Log.d(TAG, "Wifi is ON, You can download!!!")
                 }
             } else {
                 if (switch != null) {
                     switch.text = getString(R.string.switch_off, switchItem.title)
+                    Log.e(TAG, "Wifi is OFF, Turn it ON before download!!!")
                 }
             }
         }

@@ -1,8 +1,9 @@
 package com.mamadou.newsapp
 
 import android.graphics.BitmapFactory
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.work.*
@@ -11,11 +12,14 @@ import com.mamadou.newsapp.models.Article
 import com.mamadou.newsapp.worker.DownloadWorker
 import com.mamadou.newsapp.worker.FileClearWorker
 import com.mamadou.newsapp.worker.SepiaFilterWorker
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class NewsDetailsActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityNewsDetailsBinding
+    private val TAG = this.javaClass.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +40,8 @@ class NewsDetailsActivity : AppCompatActivity() {
             binding.articleUrlTextView.text = article.url
             binding.articlePublishAtTextView.text = article.publishedAt
             binding.articleSourceNameTextView.text = article.source.name
+        } else {
+            Log.e(TAG, "No news available for now!!!")
         }
     }
 
