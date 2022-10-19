@@ -142,7 +142,7 @@ All Homeworks branches related to this repo are and will be merge with the devel
 ## Week 9 Homework
 
 ### *- Need to have:*
-- [ ] Make use of Log statements
+- [x] Make use of Log statements
 - [ ] Integration tests for ViewModel (Unit tests if using Robolectric)
 - [ ] Integration tests for persistence layer (Room DB)
 - [ ] 5 unit tests
