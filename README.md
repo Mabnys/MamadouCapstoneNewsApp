@@ -143,13 +143,13 @@ All Homeworks branches related to this repo are and will be merge with the devel
 
 ### *- Need to have:*
 - [x] Make use of Log statements
-- [ ] Integration tests for ViewModel (Unit tests if using Robolectric)
-- [ ] Integration tests for persistence layer (Room DB)
-- [ ] 5 unit tests
+- [x] Integration tests for ViewModel (Unit tests if using Robolectric)
+- [x] Integration tests for persistence layer (Room DB)
+- [x] 5 unit tests
 
 ### *- Nice to have:*
-- [ ] UI tests using Espresso
-- [ ] Testing the network layer using MockWebServer
+- [x] UI tests using Espresso
+- [x] Testing the network layer using MockWebServer
 - [ ] Make use of mocks/spies
 - [ ] Above 80% code coverage
 
