@@ -41,14 +41,15 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "onCreate(): Current State")
 
         viewsModel.articles.observe(this) { result ->
+            Log.d(TAG, "Here is our current list of news $result")
             when(result) {
                 is CustomResult.Success -> {
-                    articleAdapter.updateArticle(result.value)
                     Log.d(TAG, "Updating our news' article")
+                    articleAdapter.updateArticle(result.value)
                 }
                 is CustomResult.Failure -> {
-                    Toast.makeText(this@MainActivity, "No Data Available", Toast.LENGTH_LONG).show()
                     Log.e(TAG, "Ops!! No news Available.")
+                    Toast.makeText(this@MainActivity, "No Data Available", Toast.LENGTH_LONG).show()
                 }
             }
             Toast.makeText(this@MainActivity, "Refreshing...", Toast.LENGTH_LONG).show()

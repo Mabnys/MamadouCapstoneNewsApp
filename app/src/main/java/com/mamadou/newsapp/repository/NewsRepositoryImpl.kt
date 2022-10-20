@@ -32,7 +32,7 @@ class NewsRepositoryImpl(
 
             emit(CustomResult.Success(newsFromLocalDb))
 
-            Log.i(TAG, "newFromLocalDb size = ${newsFromLocalDb.size}")
+            Log.i(TAG, "newsFromLocalDb size = ${newsFromLocalDb.size}")
 
             val isDownloadOverWifiOnly = dataStore.isDownloadOverWifiOnly().first()
             if (!isDownloadOverWifiOnly ||  networkStatusChecker.hasWifiConnection()) {

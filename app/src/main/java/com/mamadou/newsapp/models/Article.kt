@@ -20,5 +20,15 @@ data class Article(
     @TypeConverters(SourceConverter::class)
     val source: Source,
 ) : Parcelable
+//{
+//    val articleDescription = "$author,"
+//                $title,
+//                $description,
+//                $url,
+//                $urlToImage
+//                $publishedAt,
+//                $content,
+//                $source"
+//    }
 
 
