@@ -17,7 +17,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class NewsRepositoryImplTest {
+class NewsRepositoryTest {
     private val mockArticleDao = mockk<ArticleDao>()
     private val mockArticleSourceDao = mockk<ArticleSourceDao>()
     private val mockSourceDao = mockk<SourceDao>()

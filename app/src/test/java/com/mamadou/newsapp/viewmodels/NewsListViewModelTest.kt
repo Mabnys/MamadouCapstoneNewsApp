@@ -39,7 +39,7 @@ class NewsListViewModelTest {
         } returns flow { CustomResult.Success(emptyList<Article>()) }
         sut.fetchArticles()
 
-        coVerify(exactly = 5) { newsRepository.getArticles() }
+        coVerify(exactly = 2) { newsRepository.getArticles() }
     }
 
     @Test
