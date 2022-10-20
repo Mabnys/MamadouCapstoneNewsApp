@@ -18,6 +18,7 @@ import org.junit.Test
 
 @ExperimentalCoroutinesApi
 class NewsListViewModelTest {
+
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
@@ -28,7 +29,7 @@ class NewsListViewModelTest {
     @Before
     fun setup() {
         mockkStatic(Log::class)
-        NewsListViewModel(newsRepository).also { sut = it }
+        this.sut = NewsListViewModel(newsRepository)
     }
 
     @Test
@@ -38,7 +39,7 @@ class NewsListViewModelTest {
         } returns flow { CustomResult.Success(emptyList<Article>()) }
         sut.fetchArticles()
 
-        coVerify(exactly = 2) { newsRepository.getArticles() }
+        coVerify(exactly = 5) { newsRepository.getArticles() }
     }
 
     @Test
