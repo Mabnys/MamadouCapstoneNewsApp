@@ -5,7 +5,6 @@ import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.mamadou.newsapp.database.NewsDatabase
-import com.mamadou.newsapp.models.Article
 import kotlinx.coroutines.runBlocking
 import org.junit.*
 import org.junit.runner.RunWith
@@ -22,35 +21,35 @@ class ArticleDaoTest {
     fun initDb() = runBlocking {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
         newsDatabase = Room.inMemoryDatabaseBuilder(context,
-//            ApplicationProvider.getApplicationContext(),
             NewsDatabase::class.java).build()
         articleDao = newsDatabase.articleDao()
+        articleDao.getArticles()
+        articleDao.addArticles(ArticleSourceFactory.getArticles())
     }
 
     @After
-//    @Throws(IOException::class)
     fun closeDb() {
         newsDatabase.close()
     }
 
     @Test
-    fun getArticlesReturnsEmptyList() = runBlocking {
+    fun getArticles() = runBlocking {
         val newsArticle = articleDao.getArticles()
-        Assert.assertEquals(emptyList<Article>(), newsArticle)
+        Assert.assertEquals(newsArticle.size, 5)
     }
 
-//    @Test
-//    fun addArticles() = runBlocking {
-//        articleDao.addArticles()
-//        Assert.assertEquals(articleDao.getArticles().size, 6)
-//    }
+    @Test
+    fun addArticles() = runBlocking {
+        articleDao.addArticles(ArticleSourceFactory.getArticles())
+        Assert.assertEquals(articleDao.getArticles().size, 5)
+    }
 
     @Test
     fun searchArticles() = runBlocking {
-        val searchString = "2022"
-        // val article = articleDao.searchArticles(searchString).first()
-        Assert.assertEquals(articleDao.searchArticles(searchString),"2022")
-//        Assert.assertNotNull(article)
+        val searchString = "Futures ebb as Powell's speech nears - Reuters"
+        val article = articleDao.searchArticles(searchString).first()
+        Assert.assertNotNull(article)
+
     }
 
     @Test
