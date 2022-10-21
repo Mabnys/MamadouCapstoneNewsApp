@@ -148,9 +148,9 @@ All Homeworks branches related to this repo are and will be merge with the devel
 - [x] 5 unit tests
 
 ### *- Nice to have:*
-- [x] UI tests using Espresso
+- [ ] UI tests using Espresso
 - [x] Testing the network layer using MockWebServer
-- [ ] Make use of mocks/spies
+- [x] Make use of mocks/spies
 - [ ] Above 80% code coverage
 
 
