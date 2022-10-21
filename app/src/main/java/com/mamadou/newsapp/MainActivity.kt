@@ -1,6 +1,7 @@
 package com.mamadou.newsapp
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.widget.SearchView
 import android.widget.Toast
@@ -25,6 +26,8 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
+    private val TAG = this.javaClass.simpleName
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -34,25 +37,28 @@ class MainActivity : AppCompatActivity() {
             adapter = articleAdapter
 
         }
-//        fetchArticles()
 
-    //    viewsModel.fetchArticles()
+        Log.d(TAG, "onCreate(): Current State")
 
         viewsModel.articles.observe(this) { result ->
+            Log.d(TAG, "Here is our current list of news $result")
             when(result) {
                 is CustomResult.Success -> {
+                    Log.d(TAG, "Updating our news' article")
                     articleAdapter.updateArticle(result.value)
                 }
                 is CustomResult.Failure -> {
+                    Log.e(TAG, "Ops!! No news Available.")
                     Toast.makeText(this@MainActivity, "No Data Available", Toast.LENGTH_LONG).show()
                 }
             }
+            Toast.makeText(this@MainActivity, "Refreshing...", Toast.LENGTH_LONG).show()
             binding.swiperefresh.isRefreshing = false
+
         }
 
         binding.swiperefresh.setOnRefreshListener {
-//            fetchArticles()
-            viewsModel.fetchArticles()
+            loadingArticles()
         }
 
         val queryTextListener = object : SearchView.OnQueryTextListener {
@@ -67,8 +73,8 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
         }
-
         binding.searchView.setOnQueryTextListener(queryTextListener)
+        Log.d(TAG, "onCreate(): method finish")
 
     }
 
@@ -83,10 +89,12 @@ class MainActivity : AppCompatActivity() {
             if (isDownloadOverWifiOnly) {
                 if (switch != null) {
                     switch.text = getString(R.string.switch_on, switchItem.title)
+                    Log.d(TAG, "Wifi is ON, You can download!!!")
                 }
             } else {
                 if (switch != null) {
                     switch.text = getString(R.string.switch_off, switchItem.title)
+                    Log.e(TAG, "Wifi is OFF, Turn it ON before download!!!")
                 }
             }
         }
@@ -97,7 +105,6 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-
     private val articleAdapter =
         ArticleRecyclerAdapter { article ->
             val newsDetailIntent = Intent(this@MainActivity, NewsDetailsActivity::class.java)
@@ -105,34 +112,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(newsDetailIntent)
         }
 
-//    private fun fetchArticles() {
-//   //     networkStatusChecker.performIfConnectedToInternet ({
-//            binding.swiperefresh.isRefreshing = true
-//        //    lifecycleScope.launch(IO) {
-////        viewsModel.articles.observe(this) { result ->
-//          viewsModel.articles.observe(this) { result ->
-////                val result = remoteApi.getArticles()
-//             //   withContext(Main) {
-//                    when(result) {
-//                        is CustomResult.Success -> {
-//                                articleAdapter.updateArticle(result.value)
-//                        }
-//                        is CustomResult.Failure -> {
-//                            Toast.makeText(this@MainActivity, "No Data Available", Toast.LENGTH_LONG).show()
-//                        }
-//                    }
-//              //  }
-//            }
-////        }, {
-////            Toast.makeText(this@MainActivity, "Disconnected", Toast.LENGTH_LONG).show()
-//        // println("Make sure you're connected to the Internet")
-////        })
-//        binding.swiperefresh.isRefreshing = false
-//
-//    }
 
+    private fun loadingArticles() {
+        binding.swiperefresh.isRefreshing = true
+        viewsModel.fetchArticles()
 
-
+    }
 
     companion object {
         const val INTENT_EXTRA_ARTICLE = "article"

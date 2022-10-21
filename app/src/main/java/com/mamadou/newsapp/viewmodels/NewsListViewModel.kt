@@ -22,19 +22,12 @@ class NewsListViewModel(
         }
     }
 
+    private val TAG = this.javaClass.simpleName
+
     init {
         fetchArticles()
+     //   Log.d(TAG,"Here are the list of articles")
     }
-//        viewModelScope.launch(IO) {
-//            newsRepo
-//                .getArticles()
-//                .onEach { newArticle ->
-//                    _articles.postValue(newArticle)
-//                    Log.d("ARTICLE", newArticle.toString())
-//                }
-//                .collect()
-//        }
-
 
     fun fetchArticles() {
         viewModelScope.launch(IO) {
@@ -42,12 +35,11 @@ class NewsListViewModel(
                 .getArticles()
                 .onEach { newArticle ->
                     _articles.postValue(newArticle)
-                    Log.d("ARTICLE", newArticle.toString())
+                    Log.d(TAG, newArticle.toString())
                 }
                 .collect()
         }
     }
-
 
 
     fun searchArticles(search: String) {

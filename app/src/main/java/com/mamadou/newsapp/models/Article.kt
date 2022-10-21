@@ -22,3 +22,4 @@ data class Article(
 ) : Parcelable
 
 
+

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">CapstoneNewsApp</string>
-    <string name="download_only_over_wifi">Download Only Over WiFi</string>
+    <string name="download_only_over_wifi">WiFi</string>
     <string name="switch_on">%s ON</string>
     <string name="switch_off">%s OFF</string>
 </resources>

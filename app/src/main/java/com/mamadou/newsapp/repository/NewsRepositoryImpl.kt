@@ -32,7 +32,7 @@ class NewsRepositoryImpl(
 
             emit(CustomResult.Success(newsFromLocalDb))
 
-            Log.i(TAG, "newFromLocalDb size = ${newsFromLocalDb.size}")
+            Log.i(TAG, "newsFromLocalDb size = ${newsFromLocalDb.size}")
 
             val isDownloadOverWifiOnly = dataStore.isDownloadOverWifiOnly().first()
             if (!isDownloadOverWifiOnly ||  networkStatusChecker.hasWifiConnection()) {
@@ -40,6 +40,7 @@ class NewsRepositoryImpl(
                     val newsFromNetwork = newApiService
                         .getArticles(TOKEN_KEY)
                         .articles
+                    Log.d("RefreshTest","Data fetch from Network")
                     emit(CustomResult.Success(newsFromNetwork))
                     if (newsFromNetwork.isNotEmpty()) {
                         articleDao.clearArticles()
