@@ -157,13 +157,13 @@ All Homeworks branches related to this repo are and will be merge with the devel
 ## Week 10 Homework
 
 ### *- Need to have:*
-- [ ] App makes use of Dependency Injection via Hilt
-- [ ] Use Hilt with your ViewModels
-- [ ] Use Hilt provide access to your local Room database via injection
-- [ ] Unit tests in conjunction with Hilt (see ch 19 of Dagger by Tutorials)
+- [x] App makes use of Dependency Injection via Hilt
+- [x] Use Hilt with your ViewModels
+- [x] Use Hilt provide access to your local Room database via injection
+- [x] Unit tests in conjunction with Hilt (see ch 19 of Dagger by Tutorials)
 
 ### *- Nice to have:*
-- [ ] App must not make real network requests during testing and should instead rely on the mock/fake networking class that you created last week
+- [x] App must not make real network requests during testing and should instead rely on the mock/fake networking class that you created last week
 
 
 
