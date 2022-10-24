@@ -12,10 +12,11 @@ import com.mamadou.newsapp.models.Article
 import com.mamadou.newsapp.worker.DownloadWorker
 import com.mamadou.newsapp.worker.FileClearWorker
 import com.mamadou.newsapp.worker.SepiaFilterWorker
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-
+@AndroidEntryPoint
 class NewsDetailsActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityNewsDetailsBinding
@@ -33,7 +34,7 @@ class NewsDetailsActivity : AppCompatActivity() {
         if (article != null) {
             binding.articleTitleTextView.text = article.title
 
-            article?.urlToImage?.let { downloadImage(it) }
+            article.urlToImage?.let { downloadImage(it) }
 
             binding.articleAuthorTextView.text = article.author
             binding.articleDescriptionTextView.text = article.description

@@ -12,19 +12,20 @@ import com.mamadou.newsapp.databinding.ActivityMainBinding
 import com.mamadou.newsapp.utils.CustomResult
 import com.mamadou.newsapp.viewmodels.MainActivityViewModel
 import com.mamadou.newsapp.viewmodels.NewsListViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private val viewModel: MainActivityViewModel by viewModels {
-        MainActivityViewModel.Factory()
-    }
-    private val viewsModel by viewModels<NewsListViewModel> {
-        NewsListViewModel.Factory(
-            newsRepo = App.newsRepository
-        )
-    }
+    private val viewModel: MainActivityViewModel by viewModels()
+    private val viewsModel by viewModels<NewsListViewModel>()
+//    {
+//        NewsListViewModel.Factory(
+//            newsRepo = App.newsRepository
+//        )
+//    }
 
     private val TAG = this.javaClass.simpleName
 

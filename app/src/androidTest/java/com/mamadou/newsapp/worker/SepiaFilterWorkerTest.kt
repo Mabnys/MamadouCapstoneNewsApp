@@ -17,7 +17,7 @@ import org.junit.Test
 class SepiaFilterWorkerTest {
 
     private val IMAGE_PATH =
-    "/data/user/0/com.mamadou.newsapp/cache/image_manager_disk_cache/fa7539128345411c0bd8d3f66ffe80bf19eeccc3cccead1de80b04a97587cca0.0"
+        "/data/user/0/com.mamadou.newsapp/cache/image_manager_disk_cache/1612256f6995b6023d59d4706e0953b98bd7aa3c02fc48ff2ef82409aaf85f05.0"
     private lateinit var workManager: WorkManager
     private lateinit var context: Context
     private lateinit var configuration: Configuration

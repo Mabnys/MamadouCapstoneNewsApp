@@ -23,4 +23,7 @@ class RemoteApi(private val apiService: RemoteApiService) {
             CustomResult.Failure(e)
         }
     }
+
+
+
 }
