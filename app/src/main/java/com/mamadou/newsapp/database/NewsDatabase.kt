@@ -15,7 +15,8 @@ import com.mamadou.newsapp.models.Source
 const val DATABASE_VERSION = 1
 @Database(
     entities = [Article::class, Source::class],
-    version = DATABASE_VERSION
+    version = DATABASE_VERSION,
+    exportSchema = false
 )
 @TypeConverters(SourceConverter::class)
 abstract class NewsDatabase : RoomDatabase() {

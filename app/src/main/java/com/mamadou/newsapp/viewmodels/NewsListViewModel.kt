@@ -1,26 +1,24 @@
 package com.mamadou.newsapp.viewmodels
 
 import android.util.Log
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.mamadou.newsapp.models.Article
 import com.mamadou.newsapp.repository.NewsRepository
 import com.mamadou.newsapp.utils.CustomResult
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class NewsListViewModel(
+@HiltViewModel
+class NewsListViewModel @Inject constructor(
     private val newsRepo: NewsRepository
 ) : ViewModel() {
-
-    class Factory(
-        private val newsRepo: NewsRepository,
-    ): ViewModelProvider.Factory {
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return NewsListViewModel(newsRepo) as T
-        }
-    }
 
     private val TAG = this.javaClass.simpleName
 

@@ -13,7 +13,7 @@ class SepiaFilterWorker(context: Context, workerParameters: WorkerParameters) :
     override fun doWork(): Result {
         val imagePath = inputData.getString(INPUT_IMAGE_PATH) ?: return Result.failure()
         val bitmap = BitmapFactory.decodeFile(imagePath)
-        val newBitmap = ImageUtils.applySepiaFilter(bitmap)
+        val newBitmap: Bitmap = ImageUtils.applySepiaFilter(bitmap)
 
         val outputStream = FileOutputStream(imagePath)
         outputStream.use { output ->

@@ -148,10 +148,23 @@ All Homeworks branches related to this repo are and will be merge with the devel
 - [x] 5 unit tests
 
 ### *- Nice to have:*
-- [x] UI tests using Espresso
+- [ ] UI tests using Espresso
 - [x] Testing the network layer using MockWebServer
-- [ ] Make use of mocks/spies
+- [x] Make use of mocks/spies
 - [ ] Above 80% code coverage
+
+
+## Week 10 Homework
+
+### *- Need to have:*
+- [x] App makes use of Dependency Injection via Hilt
+- [x] Use Hilt with your ViewModels
+- [x] Use Hilt provide access to your local Room database via injection
+- [x] Unit tests in conjunction with Hilt (see ch 19 of Dagger by Tutorials)
+
+### *- Nice to have:*
+- [x] App must not make real network requests during testing and should instead rely on the mock/fake networking class that you created last week
+
 
 
 

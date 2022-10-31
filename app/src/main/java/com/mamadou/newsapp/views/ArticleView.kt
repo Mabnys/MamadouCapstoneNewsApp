@@ -7,8 +7,9 @@ import android.widget.LinearLayout
 import com.bumptech.glide.Glide
 import com.mamadou.newsapp.databinding.ArticleViewBinding
 import com.mamadou.newsapp.models.Article
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class ArticleView  @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
