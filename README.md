@@ -171,14 +171,14 @@ All Homeworks branches related to this repo are and will be merge with the devel
 ### *- Need to have:*
 - [x] Add a view animator to create a “fade in” animation on a view in the details screen.
 - [x] Apply transitions to your Activities or Fragments (via actions if you’re using Jetpack Navigation graphs).
-- [ ] Add a ComposeView to one of your layouts and write a @Composable function to add to the content of the view in Kotlin code.
+- [x] Add a ComposeView to one of your layouts and write a @Composable function to add to the content of the view in Kotlin code.
 - * Should also include a @Preview function!
 
 ### *- Nice to have:*
 - [x] Add a Lottie animation
 - * https://lottiefiles.com/ has many animation files to choose from!
 - * As a suggestion, try replacing any existing loading indicators with a loading lottie animation!
-- [ ] Try replacing your articles list (RecyclerView) with a Compose based approach
+- [x] Try replacing your articles list (RecyclerView) with a Compose based approach
 - * Hint: You’ll want to use LazyColumn
 - [ ] Add list animations to your  articles list
 
