@@ -1,4 +1,4 @@
-package com.mamadou.newsapp
+package com.mamadou.newsapp.ui
 
 import android.graphics.BitmapFactory
 import android.os.Bundle
@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.work.*
+import com.mamadou.newsapp.R
 import com.mamadou.newsapp.databinding.ActivityNewsDetailsBinding
 import com.mamadou.newsapp.models.Article
 import com.mamadou.newsapp.worker.DownloadWorker
@@ -26,7 +27,6 @@ class NewsDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
        binding =  ActivityNewsDetailsBinding.inflate(layoutInflater)
-
         setContentView(binding.root)
 
         val article =  intent.extras?.getParcelable<Article>(INTENT_EXTRA_ARTICLE)
@@ -98,7 +98,6 @@ class NewsDetailsActivity : AppCompatActivity() {
     private suspend fun loadImageFromFile(imagePath: String) = withContext(Dispatchers.IO) {
         BitmapFactory.decodeFile(imagePath)
     }
-
 
     companion object {
         const val INTENT_EXTRA_ARTICLE = "article"

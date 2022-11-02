@@ -1,4 +1,4 @@
-package com.mamadou.newsapp
+package com.mamadou.newsapp.ui
 
 import android.content.Context
 import android.preference.PreferenceManager

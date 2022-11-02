@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".NewsDetailsActivity"
+        tools:context=".ui.NewsDetailsActivity"
         android:orientation="vertical">
 
         <com.airbnb.lottie.LottieAnimationView
@@ -20,13 +20,21 @@
             app:lottie_speed="4"
             app:lottie_rawRes="@raw/loading_news" />
 
+        <androidx.compose.ui.platform.ComposeView
+            android:id="@+id/composeView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/articleTitleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="25sp"
             android:textStyle="bold"/>
-
 
         <ImageView
             android:id="@+id/articleUrlImageView"

@@ -1,4 +1,4 @@
-package com.mamadou.newsapp
+package com.mamadou.newsapp.ui
 
 import android.annotation.SuppressLint
 import android.view.ViewGroup

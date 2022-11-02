@@ -1,4 +1,4 @@
-package com.mamadou.newsapp
+package com.mamadou.newsapp.ui
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
+import com.mamadou.newsapp.R
 import com.mamadou.newsapp.databinding.ActivityMainBinding
 import com.mamadou.newsapp.utils.CustomResult
 import com.mamadou.newsapp.viewmodels.MainActivityViewModel
