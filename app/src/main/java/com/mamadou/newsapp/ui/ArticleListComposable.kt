@@ -1,7 +1,10 @@
 package com.mamadou.newsapp.ui
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Card
@@ -14,25 +17,36 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+import com.bumptech.glide.integration.compose.GlideImage
+import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.mamadou.newsapp.models.*
 
 @Composable
 fun ArticleListComposable(
     articles: List<Article>,
     clickListener: (Article) -> Unit = {},
+    onRefresh: () -> Unit = {},
 ) {
-    LazyColumn(modifier = Modifier) {
-        items(articles) { article ->
-            ArticleComposable(article, clickListener)
+    SwipeRefresh(
+        onRefresh = onRefresh,
+        state = rememberSwipeRefreshState(isRefreshing = false)
+    ) {
+        LazyColumn(modifier = Modifier) {
+            items(articles) { article ->
+                ArticleComposable(article, clickListener)
+            }
         }
     }
 }
 
+@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun ArticleComposable(article: Article, clickListener: (Article) -> Unit) {
     Card(
         modifier = Modifier
-            .padding(horizontal = 8.dp, vertical = 8.dp)
+           // .padding(horizontal = 8.dp, vertical = 8.dp)
             .fillMaxWidth()
             .clickable {
                 clickListener(article)
@@ -46,17 +60,46 @@ fun ArticleComposable(article: Article, clickListener: (Article) -> Unit) {
             Text(
                 text = article.title,
                 fontWeight = FontWeight.Bold,
-                fontSize = 20.sp
+                fontSize = 25.sp
             )
-            Spacer(modifier = Modifier.size(8.dp))
+
+            GlideImage(
+                model = article.urlToImage,
+                contentDescription = "",
+                modifier = Modifier.size(500.dp,300.dp)
+            )
+
+            article.author?.let {
+                Text(
+                    text = it,
+                )
+            }
+
+            article.description?.let {
+                Text(
+                    text = it,
+                )
+            }
+            article.url?.let {
+                Text(
+                    text = it,
+                )
+            }
+
+            article.publishedAt?.let {
+                Text(
+                    text = it,
+                )
+            }
+
             Text(
                 text = article.source.name,
-                fontStyle = FontStyle.Italic,
-                fontSize = 18.sp,
+                fontStyle = FontStyle.Italic
             )
         }
     }
 }
+
 
 @Preview
 @Composable
