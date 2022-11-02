@@ -6,6 +6,15 @@
     android:layout_width="match_parent"
     android:orientation="vertical">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieLoading"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_speed="4"
+        app:lottie_rawRes="@raw/www_news" />
+
     <SearchView
         android:id="@+id/search_view"
         android:layout_width="match_parent"

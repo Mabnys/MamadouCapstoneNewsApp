@@ -41,6 +41,8 @@ class NewsDetailsActivity : AppCompatActivity() {
             binding.articleUrlTextView.text = article.url
             binding.articlePublishAtTextView.text = article.publishedAt
             binding.articleSourceNameTextView.text = article.source.name
+
+            overridePendingTransition(R.anim.fade_out, R.anim.fade_in)
         } else {
             Log.e(TAG, "No news available for now!!!")
         }

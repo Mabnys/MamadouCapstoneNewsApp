@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/newsDetailsScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -9,6 +10,15 @@
         android:layout_height="wrap_content"
         tools:context=".NewsDetailsActivity"
         android:orientation="vertical">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieLoading"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_speed="4"
+            app:lottie_rawRes="@raw/loading_news" />
 
         <TextView
             android:id="@+id/articleTitleTextView"
