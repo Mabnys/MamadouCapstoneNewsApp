@@ -180,7 +180,7 @@ All Homeworks branches related to this repo are and will be merge with the devel
 - * As a suggestion, try replacing any existing loading indicators with a loading lottie animation!
 - [x] Try replacing your articles list (RecyclerView) with a Compose based approach
 - * Hint: You’ll want to use LazyColumn
-- [ ] Add list animations to your  articles list
+- [x] Add list animations to your  articles list
 
 
 
