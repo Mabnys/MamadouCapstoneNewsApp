@@ -22,11 +22,6 @@ class MainActivity : AppCompatActivity() {
 
     private val viewModel: MainActivityViewModel by viewModels()
     private val viewsModel by viewModels<NewsListViewModel>()
-//    {
-//        NewsListViewModel.Factory(
-//            newsRepo = App.newsRepository
-//        )
-//    }
 
     private val TAG = this.javaClass.simpleName
 
