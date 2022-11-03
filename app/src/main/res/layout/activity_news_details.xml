@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/newsDetailsScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".NewsDetailsActivity"
+        tools:context=".ui.NewsDetailsActivity"
         android:orientation="vertical">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieLoading"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_speed="4"
+            app:lottie_rawRes="@raw/loading_news" />
+
+        <androidx.compose.ui.platform.ComposeView
+            android:id="@+id/composeView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
         <TextView
             android:id="@+id/articleTitleTextView"
@@ -16,7 +31,6 @@
             android:layout_height="wrap_content"
             android:textSize="25sp"
             android:textStyle="bold"/>
-
 
         <ImageView
             android:id="@+id/articleUrlImageView"
@@ -46,6 +60,8 @@
         <TextView
             android:id="@+id/articleSourceNameTextView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textStyle="italic"/>
+
     </LinearLayout>
 </ScrollView>

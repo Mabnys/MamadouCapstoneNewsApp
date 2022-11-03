@@ -166,6 +166,23 @@ All Homeworks branches related to this repo are and will be merge with the devel
 - [x] App must not make real network requests during testing and should instead rely on the mock/fake networking class that you created last week
 
 
+## Week 11 Homework
+
+### *- Need to have:*
+- [x] Add a view animator to create a “fade in” animation on a view in the details screen.
+- [x] Apply transitions to your Activities or Fragments (via actions if you’re using Jetpack Navigation graphs).
+- [x] Add a ComposeView to one of your layouts and write a @Composable function to add to the content of the view in Kotlin code.
+- * Should also include a @Preview function!
+
+### *- Nice to have:*
+- [x] Add a Lottie animation
+- * https://lottiefiles.com/ has many animation files to choose from!
+- * As a suggestion, try replacing any existing loading indicators with a loading lottie animation!
+- [x] Try replacing your articles list (RecyclerView) with a Compose based approach
+- * Hint: You’ll want to use LazyColumn
+- [x] Add list animations to your  articles list
+
+
 
 
 

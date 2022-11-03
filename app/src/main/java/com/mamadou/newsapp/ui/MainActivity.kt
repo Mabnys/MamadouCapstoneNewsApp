@@ -1,4 +1,4 @@
-package com.mamadou.newsapp
+package com.mamadou.newsapp.ui
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
+import androidx.compose.material.MaterialTheme
+import com.mamadou.newsapp.R
 import com.mamadou.newsapp.databinding.ActivityMainBinding
 import com.mamadou.newsapp.utils.CustomResult
 import com.mamadou.newsapp.viewmodels.MainActivityViewModel
@@ -21,23 +23,13 @@ class MainActivity : AppCompatActivity() {
 
     private val viewModel: MainActivityViewModel by viewModels()
     private val viewsModel by viewModels<NewsListViewModel>()
-//    {
-//        NewsListViewModel.Factory(
-//            newsRepo = App.newsRepository
-//        )
-//    }
 
     private val TAG = this.javaClass.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.articleRecyclerView.run {
-            adapter = articleAdapter
-
-        }
 
         Log.d(TAG, "onCreate(): Current State")
 
@@ -46,7 +38,21 @@ class MainActivity : AppCompatActivity() {
             when(result) {
                 is CustomResult.Success -> {
                     Log.d(TAG, "Updating our news' article")
-                    articleAdapter.updateArticle(result.value)
+                    binding.composeView.setContent {
+                        MaterialTheme {
+                            ArticleListComposable(articles = result.value,
+                                clickListener =
+                                { article ->
+                                    val newsDetailIntent = Intent(this@MainActivity, NewsDetailsActivity::class.java)
+                                    newsDetailIntent.putExtra(INTENT_EXTRA_ARTICLE, article)
+                                    startActivity(newsDetailIntent)
+                                },
+                                onRefresh = {
+                                    loadingArticles()
+                                }
+                            )
+                        }
+                    }
                 }
                 is CustomResult.Failure -> {
                     Log.e(TAG, "Ops!! No news Available.")
@@ -54,14 +60,8 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             Toast.makeText(this@MainActivity, "Refreshing...", Toast.LENGTH_LONG).show()
-            binding.swiperefresh.isRefreshing = false
 
         }
-
-        binding.swiperefresh.setOnRefreshListener {
-            loadingArticles()
-        }
-
         val queryTextListener = object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return true
@@ -106,18 +106,8 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    private val articleAdapter =
-        ArticleRecyclerAdapter { article ->
-            val newsDetailIntent = Intent(this@MainActivity, NewsDetailsActivity::class.java)
-            newsDetailIntent.putExtra(INTENT_EXTRA_ARTICLE, article)
-            startActivity(newsDetailIntent)
-        }
-
-
     private fun loadingArticles() {
-        binding.swiperefresh.isRefreshing = true
         viewsModel.fetchArticles()
-
     }
 
     companion object {
