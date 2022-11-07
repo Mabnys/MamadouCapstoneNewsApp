@@ -24,7 +24,6 @@ class NewsListViewModel @Inject constructor(
 
     init {
         fetchArticles()
-     //   Log.d(TAG,"Here are the list of articles")
     }
 
     fun fetchArticles() {
